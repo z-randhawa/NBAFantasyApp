@@ -23,3 +23,12 @@ would be very beneficial to be able to compare players values statistically to e
 is usually big money on the line and even one player can be the difference between winning big or losing badly in any   
 given week. Creating an application that not only other players can use, but I personally can use too makes me very   
 interested in making an application like this.
+
+
+#### User Stories:
+* As a user, I want to be able to create a team and add it to list of teams I've already created.
+* As a user, I want to be able to select a team and add a created player to it with the given statistics.
+* As a user, I want to be able to select a team and view the players in it
+* As a user, I want to be able to select a player and view the player's statistics
+* As a user, I want to be able to select a team and view it's average fantasy value per player
+* As a user, I want to be able to edit a team by inserting or removing players from it
