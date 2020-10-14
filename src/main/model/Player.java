@@ -22,16 +22,16 @@ public class Player {
     private double turnovers;
     private double value;
 
-    public Player(String nm, double pts, double rebs, double asts, double stls, double blks, double thr, double to) {
+    public Player(String nm) {
         this.name = nm;
-        this.points = pts;
-        this.rebounds = rebs;
-        this.assists = asts;
-        this.steals = stls;
-        this.blocks = blks;
-        this.threes = thr;
-        this.turnovers = to;
-        this.value = ((pts * PF) + (rebs * RF) + (asts * AF) + (blks * BF) + (stls * SF) + (thr * THF) + (to * TOF));
+        this.points = 0;
+        this.rebounds = 0;
+        this.assists = 0;
+        this.steals = 0;
+        this.blocks = 0;
+        this.threes = 0;
+        this.turnovers = 0;
+        this.value = 0;
     }
 
     //getters
@@ -69,5 +69,38 @@ public class Player {
 
     public double getValue() {
         return value;
+    }
+
+    //setters
+    public void setPoints(double pts) {
+        this.points = pts;
+    }
+
+    public void setRebounds(double rbs) {
+        this.rebounds = rbs;
+    }
+
+    public void setAssists(double ast) {
+        this.assists = ast;
+    }
+
+    public void setSteals(double stl) {
+        this.steals = stl;
+    }
+
+    public void setBlocks(double blk) {
+        this.blocks = blk;
+    }
+
+    public void setThrees(double thr) {
+        this.threes = thr;
+    }
+
+    public void setTurnovers(double tos) {
+        this.turnovers = tos;
+    }
+
+    public void setValue() {
+        this.value = ((points * PF) + (rebounds * RF) + (assists * AF) + (blocks * BF) + (steals * SF) + (threes * THF) + (turnovers * TOF));
     }
 }

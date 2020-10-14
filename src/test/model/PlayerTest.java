@@ -14,11 +14,54 @@ public class PlayerTest {
 
     @BeforeEach
     void runBefore() {
-        p0 = new Player("", 0, 0, 0, 0, 0, 0, 0);
-        p1 = new Player("Player 1", 25, 2, 4.5, 0.8, 0.7, 1.3, 0);
-        p2 = new Player("Player 2", 12.6, 0, 0, 1.2, 2.1, 4, 5);
-        p3 = new Player("Player 3", 7.0, 2.5,3,3, 0, 5, 2.5);
-        p4 = new Player("Player 4", 0, 0, 0,0,0,0, 11.3);
+        p0 = new Player("");
+        p0.setPoints(0);
+        p0.setRebounds(0);
+        p0.setAssists(0);
+        p0.setSteals(0);
+        p0.setBlocks(0);
+        p0.setThrees(0);
+        p0.setTurnovers(0);
+
+        p1 = new Player("Player 1");
+        p1.setPoints(25);
+        p1.setRebounds(2);
+        p1.setAssists(4.5);
+        p1.setSteals(0.8);
+        p1.setBlocks(0.7);
+        p1.setThrees(1.3);
+        p1.setTurnovers(0);
+        p1.setValue();
+
+        p2 = new Player("Player 2");
+        p2.setPoints(12.6);
+        p2.setRebounds(0);
+        p2.setAssists(0);
+        p2.setSteals(1.2);
+        p2.setBlocks(2.1);
+        p2.setThrees(4);
+        p2.setTurnovers(5);
+        p2.setValue();
+
+        p3 = new Player("Player 3");
+        p3.setPoints(7.0);
+        p3.setRebounds(2.5);
+        p3.setAssists(3);
+        p3.setSteals(3);
+        p3.setBlocks(0);
+        p3.setThrees(5);
+        p3.setTurnovers(2.5);
+        p3.setValue();
+
+        p4 = new Player("Player 4");
+        p4.setPoints(0);
+        p4.setRebounds(0);
+        p4.setAssists(0);
+        p4.setSteals(0);
+        p4.setBlocks(0);
+        p4.setThrees(0);
+        p4.setTurnovers(11.3);
+        p4.setValue();
     }
 
     @Test

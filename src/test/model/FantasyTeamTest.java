@@ -16,9 +16,32 @@ public class FantasyTeamTest {
     void setUp() {
         testFantasyTeam0 = new FantasyTeam("Test Team");
         testFantasyTeam1 = new FantasyTeam("My Team");
-        testPlayer1 = new Player("Lebron James", 29.2, 8.6, 11, 1.4, 1.2, 2.2, 4);
-        testPlayer2 = new Player("Anthony Davis", 25, 8.1, 3.3, 1.5, 2.3, 3, 2.1);
-        testPlayer3 = new Player("Jimmy Butler", 27.1, 7.5, 8, 2.7, 0.8, 0.5, 3);
+        testPlayer1 = new Player("Lebron James");
+        testPlayer1.setPoints(29.2);
+        testPlayer1.setRebounds(8.6);
+        testPlayer1.setAssists(11);
+        testPlayer1.setSteals(1.4);
+        testPlayer1.setBlocks(1.2);
+        testPlayer1.setThrees(2.2);
+        testPlayer1.setTurnovers(4);
+
+        testPlayer2 = new Player("Anthony Davis");
+        testPlayer2.setPoints(25);
+        testPlayer2.setRebounds(8.1);
+        testPlayer2.setAssists(3.3);
+        testPlayer2.setSteals(1.5);
+        testPlayer2.setBlocks(2.3);
+        testPlayer2.setThrees(3);
+        testPlayer2.setTurnovers(2.1);
+
+        testPlayer3 = new Player("Jimmy Butler");
+        testPlayer3.setPoints(27.1);
+        testPlayer3.setRebounds(7.5);
+        testPlayer3.setAssists(8);
+        testPlayer3.setSteals(2.7);
+        testPlayer3.setBlocks(0.8);
+        testPlayer3.setThrees(0.5);
+        testPlayer3.setTurnovers(3);
 
         testFantasyTeam1.addPlayerToTeam(testPlayer1);
         testFantasyTeam1.addPlayerToTeam(testPlayer2);
@@ -29,7 +52,15 @@ public class FantasyTeamTest {
     void testAddPlayerToTeam() {
         testFantasyTeam1.addPlayerToTeam(testPlayer1);
         assertEquals(3, testFantasyTeam1.getPlayerList().size());
-        Player testPlayer4 = new Player("Kyle Kuzma", 27.1, 7.5, 0, 0, 0, 1.5, 4);
+        Player testPlayer4 = new Player("Kyle Kuzma");
+        testPlayer4.setPoints(27.1);
+        testPlayer4.setRebounds(7.5);
+        testPlayer4.setAssists(0);
+        testPlayer4.setSteals(0);
+        testPlayer4.setBlocks(0);
+        testPlayer4.setThrees(1.4);
+        testPlayer4.setTurnovers(4);
+
         testFantasyTeam1.addPlayerToTeam(testPlayer4);
         assertEquals(4, testFantasyTeam1.getPlayerList().size());
     }
@@ -75,8 +106,14 @@ public class FantasyTeamTest {
     }
 
     @Test
-    void testViewPlayer() {
-        assertNull(testFantasyTeam0.viewPlayer(testPlayer1));
-        assertSame(testPlayer2, testFantasyTeam1.viewPlayer(testPlayer2));
+    void testContainsPlayer() {
+        assertFalse(testFantasyTeam0.containsPlayer(testPlayer1.getName()));
+        assertTrue(testFantasyTeam1.containsPlayer(testPlayer2.getName()));
     }
+
+    @Test
+    void testGetPlayer() {
+        assertSame(testPlayer2, testFantasyTeam1.getPlayer(testPlayer2.getName()));
+    }
+
 }

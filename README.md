@@ -28,7 +28,5 @@ interested in making an application like this.
 #### User Stories:
 * As a user, I want to be able to create a team and add it to list of teams I've already created.
 * As a user, I want to be able to select a team and add a created player to it with the given statistics.
-* As a user, I want to be able to select a team and view the players in it
+* As a user, I want to be able to select a team and view the players in it and its average fantasy value per player
 * As a user, I want to be able to select a player and view the player's statistics
-* As a user, I want to be able to select a team and view it's average fantasy value per player
-* As a user, I want to be able to edit a team by inserting or removing players from it

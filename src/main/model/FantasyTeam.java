@@ -1,17 +1,18 @@
 package model;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
-class FantasyTeam {
+public class FantasyTeam {
 
     private String teamName;
-    private List<Player> playerList;
+    private ArrayList<Player> playerList;
     private double teamValue;
 
+    //setter
     public FantasyTeam(String tn) {
         this.teamName = tn;
-        this.playerList = new LinkedList<>();
+        this.playerList = new ArrayList<>();
         this.teamValue = 0;
     }
 
@@ -60,12 +61,37 @@ class FantasyTeam {
         }
     }
 
+    // EFFECTS: return true if list contains given player
+    public boolean containsPlayer(String pn) {
+        for (Player p : playerList) {
+            if (p.getName().equals(pn)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // REQUIRES: list that contains the player
     // EFFECTS: return player if list contains given player
-    public Player viewPlayer(Player p) {
-        if (playerList.contains(p)) {
-            return p;
+    public Player getPlayer(String pn) {
+        for (Player p : playerList) {
+            if (p.getName().equals(pn)) {
+                return p;
+            }
+        }
+        Player rp = new Player(pn);
+        return rp;
+    }
+
+    //EFFECTS: Prints the names of all players in the team
+    public void printFantasyTeam() {
+        if (playerList.isEmpty()) {
+            System.out.println("There are no players on this team");
         } else {
-            return null;
+            for (Player p : playerList) {
+                System.out.println(p.getName());
+            }
+            System.out.println("That's your whole squad");
         }
     }
 }
