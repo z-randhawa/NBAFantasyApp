@@ -81,22 +81,20 @@ public class FantasyTeamApp {
         String playerName;
         playerName = input.nextLine();
         if (masterListOfPlayers.containsPlayer(playerName)) {
-            System.out.println(playerName + " has value of " + (masterListOfPlayers.getPlayer(playerName)).getValue());
+            System.out.println(playerName + " has value of " + masterListOfPlayers.getPlayer(playerName).getVal());
         } else {
             Player p = new Player(playerName);
-            System.out.println("Player created with name " + p.getName());
+            System.out.println("Player created with name " + p.getNm());
             enterStats1(p);
             enterStats2(p);
             System.out.println("Which team would you like to add this player to?");
             String teamName;
             teamName = input.nextLine();
-            if (fantasyTeamList.containsTeam(teamName)) {
-                fantasyTeamList.getTeam(teamName).addPlayerToTeam(p);
-            } else {
+            if (!fantasyTeamList.containsTeam(teamName)) {
                 FantasyTeam fantasyTeam = new FantasyTeam(teamName);
                 fantasyTeamList.addTeam(fantasyTeam);
-                fantasyTeamList.getTeam(teamName).addPlayerToTeam(p);
             }
+            fantasyTeamList.getTeam(teamName).addPlayerToTeam(p);
             masterListOfPlayers.addPlayerToTeam(p);
         }
     }
@@ -107,15 +105,15 @@ public class FantasyTeamApp {
         System.out.println("Enter points per game of given player");
         String points = input.nextLine();
         double pts = Double.parseDouble(points);
-        p.setPoints(pts);
+        p.setPts(pts);
         System.out.println("Enter rebounds per game of given player");
         String rebounds = input.nextLine();
         double rebs = Double.parseDouble(rebounds);
-        p.setRebounds(rebs);
+        p.setRbs(rebs);
         System.out.println("Enter assists per game of given player");
         String assists = input.nextLine();
         double ast = Double.parseDouble(assists);
-        p.setAssists(ast);
+        p.setAst(ast);
         p.setValue();
     }
 
@@ -123,19 +121,19 @@ public class FantasyTeamApp {
         System.out.println("Enter steals per game of given player");
         String steals = input.nextLine();
         double stl = Double.parseDouble(steals);
-        p.setSteals(stl);
+        p.setStl(stl);
         System.out.println("Enter blocks per game of given player");
         String blocks = input.nextLine();
         double blk = Double.parseDouble(blocks);
-        p.setBlocks(blk);
+        p.setBlk(blk);
         System.out.println("Enter three pointers made per game of given player");
         String threes = input.nextLine();
         double thr = Double.parseDouble(threes);
-        p.setThrees(thr);
+        p.setThr(thr);
         System.out.println("Enter turnovers per game of given player");
         String turnovers = input.nextLine();
         double tos = Double.parseDouble(turnovers);
-        p.setTurnovers(tos);
+        p.setTos(tos);
         p.setValue();
     }
 

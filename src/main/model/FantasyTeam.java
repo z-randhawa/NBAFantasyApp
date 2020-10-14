@@ -34,7 +34,7 @@ public class FantasyTeam {
     public void addPlayerToTeam(Player p) {
         if (!playerList.contains(p)) {
             playerList.add(p);
-            teamValue = teamValue + p.getValue();
+            teamValue = teamValue + p.getVal();
         }
     }
 
@@ -64,7 +64,7 @@ public class FantasyTeam {
     // EFFECTS: return true if list contains given player
     public boolean containsPlayer(String pn) {
         for (Player p : playerList) {
-            if (p.getName().equals(pn)) {
+            if (p.getNm().equals(pn)) {
                 return true;
             }
         }
@@ -75,12 +75,11 @@ public class FantasyTeam {
     // EFFECTS: return player if list contains given player
     public Player getPlayer(String pn) {
         for (Player p : playerList) {
-            if (p.getName().equals(pn)) {
+            if (p.getNm().equals(pn)) {
                 return p;
             }
         }
-        Player rp = new Player(pn);
-        return rp;
+        return new Player(pn);
     }
 
     //EFFECTS: Prints the names of all players in the team
@@ -89,7 +88,7 @@ public class FantasyTeam {
             System.out.println("There are no players on this team");
         } else {
             for (Player p : playerList) {
-                System.out.println(p.getName());
+                System.out.println(p.getNm());
             }
             System.out.println("That's your whole squad");
         }

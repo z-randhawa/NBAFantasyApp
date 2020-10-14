@@ -12,95 +12,95 @@ public class Player {
     public static int THF = 6;
     public static int TOF = -5;
 
-    private String name;
-    private double points;
-    private double rebounds;
-    private double assists;
-    private double steals;
-    private double blocks;
-    private double threes;
-    private double turnovers;
-    private double value;
+    private String nm;
+    private double pts;
+    private double rbs;
+    private double ast;
+    private double stl;
+    private double blk;
+    private double thr;
+    private double tos;
+    private double val;
 
     public Player(String nm) {
-        this.name = nm;
-        this.points = 0;
-        this.rebounds = 0;
-        this.assists = 0;
-        this.steals = 0;
-        this.blocks = 0;
-        this.threes = 0;
-        this.turnovers = 0;
-        this.value = 0;
+        this.nm = nm;
+        this.pts = 0;
+        this.rbs = 0;
+        this.ast = 0;
+        this.stl = 0;
+        this.blk = 0;
+        this.thr = 0;
+        this.tos = 0;
+        this.val = 0;
     }
 
     //getters
-    public String getName() {
-        return name;
+    public String getNm() {
+        return nm;
     }
 
-    public double getPoints() {
-        return points;
+    public double getPts() {
+        return pts;
     }
 
-    public double getRebounds() {
-        return rebounds;
+    public double getRbs() {
+        return rbs;
     }
 
-    public double getAssists() {
-        return assists;
+    public double getAst() {
+        return ast;
     }
 
-    public double getSteals() {
-        return steals;
+    public double getStl() {
+        return stl;
     }
 
-    public double getBlocks() {
-        return blocks;
+    public double getBlk() {
+        return blk;
     }
 
-    public double getThrees() {
-        return threes;
+    public double getThr() {
+        return thr;
     }
 
-    public double getTurnovers() {
-        return turnovers;
+    public double getTos() {
+        return tos;
     }
 
-    public double getValue() {
-        return value;
+    public double getVal() {
+        return val;
     }
 
     //setters
-    public void setPoints(double pts) {
-        this.points = pts;
+    public void setPts(double pts) {
+        this.pts = pts;
     }
 
-    public void setRebounds(double rbs) {
-        this.rebounds = rbs;
+    public void setRbs(double rbs) {
+        this.rbs = rbs;
     }
 
-    public void setAssists(double ast) {
-        this.assists = ast;
+    public void setAst(double ast) {
+        this.ast = ast;
     }
 
-    public void setSteals(double stl) {
-        this.steals = stl;
+    public void setStl(double stl) {
+        this.stl = stl;
     }
 
-    public void setBlocks(double blk) {
-        this.blocks = blk;
+    public void setBlk(double blk) {
+        this.blk = blk;
     }
 
-    public void setThrees(double thr) {
-        this.threes = thr;
+    public void setThr(double thr) {
+        this.thr = thr;
     }
 
-    public void setTurnovers(double tos) {
-        this.turnovers = tos;
+    public void setTos(double tos) {
+        this.tos = tos;
     }
 
     public void setValue() {
-        this.value = ((points * PF) + (rebounds * RF) + (assists * AF) + (blocks * BF) + (steals * SF) + (threes * THF) + (turnovers * TOF));
+        this.val = ((pts * PF) + (rbs * RF) + (ast * AF) + (blk * BF) + (stl * SF) + (thr * THF) + (tos * TOF));
     }
 }

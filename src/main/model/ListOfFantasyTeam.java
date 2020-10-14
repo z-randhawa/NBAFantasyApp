@@ -38,7 +38,6 @@ public class ListOfFantasyTeam {
                 return ft;
             }
         }
-        FantasyTeam rt = new FantasyTeam(tn);
-        return rt;
+        return new FantasyTeam(tn);
     }
 }

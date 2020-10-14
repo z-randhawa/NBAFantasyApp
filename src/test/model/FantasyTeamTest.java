@@ -17,31 +17,31 @@ public class FantasyTeamTest {
         testFantasyTeam0 = new FantasyTeam("Test Team");
         testFantasyTeam1 = new FantasyTeam("My Team");
         testPlayer1 = new Player("Lebron James");
-        testPlayer1.setPoints(29.2);
-        testPlayer1.setRebounds(8.6);
-        testPlayer1.setAssists(11);
-        testPlayer1.setSteals(1.4);
-        testPlayer1.setBlocks(1.2);
-        testPlayer1.setThrees(2.2);
-        testPlayer1.setTurnovers(4);
+        testPlayer1.setPts(29.2);
+        testPlayer1.setRbs(8.6);
+        testPlayer1.setAst(11);
+        testPlayer1.setStl(1.4);
+        testPlayer1.setBlk(1.2);
+        testPlayer1.setThr(2.2);
+        testPlayer1.setTos(4);
 
         testPlayer2 = new Player("Anthony Davis");
-        testPlayer2.setPoints(25);
-        testPlayer2.setRebounds(8.1);
-        testPlayer2.setAssists(3.3);
-        testPlayer2.setSteals(1.5);
-        testPlayer2.setBlocks(2.3);
-        testPlayer2.setThrees(3);
-        testPlayer2.setTurnovers(2.1);
+        testPlayer2.setPts(25);
+        testPlayer2.setRbs(8.1);
+        testPlayer2.setAst(3.3);
+        testPlayer2.setStl(1.5);
+        testPlayer2.setBlk(2.3);
+        testPlayer2.setThr(3);
+        testPlayer2.setTos(2.1);
 
         testPlayer3 = new Player("Jimmy Butler");
-        testPlayer3.setPoints(27.1);
-        testPlayer3.setRebounds(7.5);
-        testPlayer3.setAssists(8);
-        testPlayer3.setSteals(2.7);
-        testPlayer3.setBlocks(0.8);
-        testPlayer3.setThrees(0.5);
-        testPlayer3.setTurnovers(3);
+        testPlayer3.setPts(27.1);
+        testPlayer3.setRbs(7.5);
+        testPlayer3.setAst(8);
+        testPlayer3.setStl(2.7);
+        testPlayer3.setBlk(0.8);
+        testPlayer3.setThr(0.5);
+        testPlayer3.setTos(3);
 
         testFantasyTeam1.addPlayerToTeam(testPlayer1);
         testFantasyTeam1.addPlayerToTeam(testPlayer2);
@@ -53,13 +53,13 @@ public class FantasyTeamTest {
         testFantasyTeam1.addPlayerToTeam(testPlayer1);
         assertEquals(3, testFantasyTeam1.getPlayerList().size());
         Player testPlayer4 = new Player("Kyle Kuzma");
-        testPlayer4.setPoints(27.1);
-        testPlayer4.setRebounds(7.5);
-        testPlayer4.setAssists(0);
-        testPlayer4.setSteals(0);
-        testPlayer4.setBlocks(0);
-        testPlayer4.setThrees(1.4);
-        testPlayer4.setTurnovers(4);
+        testPlayer4.setPts(27.1);
+        testPlayer4.setRbs(7.5);
+        testPlayer4.setAst(0);
+        testPlayer4.setStl(0);
+        testPlayer4.setBlk(0);
+        testPlayer4.setThr(1.4);
+        testPlayer4.setTos(4);
 
         testFantasyTeam1.addPlayerToTeam(testPlayer4);
         assertEquals(4, testFantasyTeam1.getPlayerList().size());
@@ -81,14 +81,14 @@ public class FantasyTeamTest {
     @Test
     void testGetTeamValue() {
         assertEquals(0, testFantasyTeam0.getTeamValue());
-        double testValue = (testPlayer1.getValue() + testPlayer2.getValue() + testPlayer3.getValue());
+        double testValue = (testPlayer1.getVal() + testPlayer2.getVal() + testPlayer3.getVal());
         assertEquals(testValue ,testFantasyTeam1.getTeamValue());
     }
 
     @Test
     void testGetAverageValueOfTeam() {
         assertEquals(0, testFantasyTeam0.getAverageValueOfTeam());
-        double testAverageValue = (testPlayer1.getValue() + testPlayer2.getValue() + testPlayer3.getValue()) / 3;
+        double testAverageValue = (testPlayer1.getVal() + testPlayer2.getVal() + testPlayer3.getVal()) / 3;
         assertEquals(testAverageValue, testFantasyTeam1.getAverageValueOfTeam());
     }
 
@@ -107,13 +107,13 @@ public class FantasyTeamTest {
 
     @Test
     void testContainsPlayer() {
-        assertFalse(testFantasyTeam0.containsPlayer(testPlayer1.getName()));
-        assertTrue(testFantasyTeam1.containsPlayer(testPlayer2.getName()));
+        assertFalse(testFantasyTeam0.containsPlayer(testPlayer1.getNm()));
+        assertTrue(testFantasyTeam1.containsPlayer(testPlayer2.getNm()));
     }
 
     @Test
     void testGetPlayer() {
-        assertSame(testPlayer2, testFantasyTeam1.getPlayer(testPlayer2.getName()));
+        assertSame(testPlayer2, testFantasyTeam1.getPlayer(testPlayer2.getNm()));
     }
 
 }
