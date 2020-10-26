@@ -15,7 +15,7 @@ public class ListOfFantasyTeamTest {
     Player testPlayer3;
 
     @BeforeEach
-    void setUp() {
+    void testSetUp() {
 
         testFantasyTeam0 = new FantasyTeam("Test Team");
         testFantasyTeam1 = new FantasyTeam("My Team");
