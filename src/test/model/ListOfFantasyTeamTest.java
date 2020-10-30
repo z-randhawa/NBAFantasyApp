@@ -50,9 +50,14 @@ public class ListOfFantasyTeamTest {
         testFantasyTeam1.addPlayerToTeam(testPlayer2);
         testFantasyTeam1.addPlayerToTeam(testPlayer3);
 
-        testListOfFantasyTeam0 = new ListOfFantasyTeam();
-        testListOfFantasyTeam1 = new ListOfFantasyTeam();
+        testListOfFantasyTeam0 = new ListOfFantasyTeam("list0");
+        testListOfFantasyTeam1 = new ListOfFantasyTeam("list1");
         testListOfFantasyTeam1.addTeam(testFantasyTeam1);
+    }
+
+    @Test
+    void testGetName() {
+        assertEquals("list0", testListOfFantasyTeam0.getListName());
     }
 
     @Test
@@ -63,7 +68,7 @@ public class ListOfFantasyTeamTest {
 
     @Test
     void testAddTeam() {
-        testListOfFantasyTeam1.addTeam(testFantasyTeam0);;
+        testListOfFantasyTeam1.addTeam(testFantasyTeam0);
         assertTrue(testListOfFantasyTeam1.containsTeam(testFantasyTeam0.getTeamName()));
     }
 

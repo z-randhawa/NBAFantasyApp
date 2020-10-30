@@ -1,17 +1,27 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
-public class ListOfFantasyTeam {
+public class ListOfFantasyTeam implements Writable {
 
+    private String listName;
     private ArrayList<FantasyTeam> teamList;
 
     //setter
-    public ListOfFantasyTeam() {
+    public ListOfFantasyTeam(String ln) {
+        this.listName = ln;
         this.teamList = new ArrayList<>();
     }
 
     //getter
+    public String getListName() {
+        return listName;
+    }
+
     public boolean containsTeam(String tn) {
         for (FantasyTeam ft : teamList) {
             if (ft.getTeamName().equals(tn)) {
@@ -19,6 +29,16 @@ public class ListOfFantasyTeam {
             }
         }
         return false;
+    }
+
+    //getter
+    public int getNumOfTeams() {
+        return teamList.size();
+    }
+
+    //getter
+    public  ArrayList<FantasyTeam> getTeamList() {
+        return teamList;
     }
 
     // MODIFIES: this
@@ -39,5 +59,23 @@ public class ListOfFantasyTeam {
             }
         }
         return new FantasyTeam(tn);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("allTeams", teamsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns teams in this list of fantasy teams as a JSON array
+    private JSONArray teamsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (FantasyTeam ft : teamList) {
+            jsonArray.put(ft.toJson());
+        }
+
+        return jsonArray;
     }
 }

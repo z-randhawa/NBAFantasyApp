@@ -1,6 +1,9 @@
 package model;
 
-public class Player {
+import org.json.JSONObject;
+import persistence.Writable;
+
+public class Player implements Writable {
 
     // The following are factors that are multiplied by each player statistic to get their numerical contribution
     // to the overall value of a player
@@ -102,5 +105,17 @@ public class Player {
 
     public void setValue() {
         this.val = ((pts * PF) + (rbs * RF) + (ast * AF) + (blk * BF) + (stl * SF) + (thr * THF) + (tos * TOF));
+    }
+
+    public void setValue(double v) {
+        this.val = v;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", nm);
+        json.put("value", val);
+        return json;
     }
 }

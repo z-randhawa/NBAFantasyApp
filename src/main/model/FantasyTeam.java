@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class FantasyTeam {
+public class FantasyTeam implements Writable {
 
     private String teamName;
     private ArrayList<Player> playerList;
@@ -92,5 +96,24 @@ public class FantasyTeam {
             }
             System.out.println("That's your whole squad");
         }
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("teamName", teamName);
+        json.put("players", playersToJson());
+        return json;
+    }
+
+    // EFFECTS: returns players in this fantasy team as a JSON array
+    private JSONArray playersToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Player p : playerList) {
+            jsonArray.put(p.toJson());
+        }
+
+        return jsonArray;
     }
 }

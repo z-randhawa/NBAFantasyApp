@@ -1,0 +1,16 @@
+{"allTeams": [
+  {
+    "teamName": "Lakers",
+    "players": [{
+      "name": "Lebron James",
+      "value": 109
+    }]
+  },
+  {
+    "teamName": "Heat",
+    "players": [{
+      "name": "Jimmy Butler",
+      "value": 73
+    }]
+  }
+]}

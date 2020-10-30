@@ -3,17 +3,26 @@ package ui;
 import model.FantasyTeam;
 import model.Player;
 import model.ListOfFantasyTeam;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // Fantasy Team application
 public class FantasyTeamApp {
-    private ListOfFantasyTeam fantasyTeamList = new ListOfFantasyTeam();
-    private FantasyTeam masterListOfPlayers = new FantasyTeam("Master");
+    private static final String JSON_STORE = "./data/fantasyteam.json";
+    private ListOfFantasyTeam fantasyTeamList = new ListOfFantasyTeam("allTeams");
+    private static FantasyTeam masterListOfPlayers = new FantasyTeam("Master");
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     //EFFECTS: runs the fantasy application
-    public FantasyTeamApp() {
+    public FantasyTeamApp() throws FileNotFoundException {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runFantasy();
     }
 
@@ -47,6 +56,10 @@ public class FantasyTeamApp {
             teamMenu();
         } else if (command.equals("p")) {
             playerMenu();
+        } else if (command.equals("s")) {
+            saveListOfFantasyTeams();
+        } else if (command.equals("l")) {
+            loadListOfFantasyTeams();
         } else {
             System.out.println("The option you selected is not valid, try again...");
         }
@@ -57,6 +70,8 @@ public class FantasyTeamApp {
         System.out.println("\nDo you want to:");
         System.out.println("\tCreate or view a team? Enter t");
         System.out.println("\tCreate or view a player? Enter p");
+        System.out.println("\tSave fantasy team(s) to file? Enter s");
+        System.out.println("\tLoad fantasy team(s) from file? Enter l");
         System.out.println("\tQuit? Enter q");
     }
 
@@ -135,6 +150,33 @@ public class FantasyTeamApp {
         double tos = Double.parseDouble(turnovers);
         p.setTos(tos);
         p.setValue();
+    }
+
+    // EFFECTS: saves the fantasy team(s) created to file
+    private void saveListOfFantasyTeams() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(fantasyTeamList);
+            jsonWriter.close();
+            System.out.println("Saved team(s) to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads list of fantasy teams from file
+    private void loadListOfFantasyTeams() {
+        try {
+            fantasyTeamList = jsonReader.read();
+            System.out.println("Loaded team(s) from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
+    public static FantasyTeam getMasterListOfPlayers() {
+        return masterListOfPlayers;
     }
 
 }
