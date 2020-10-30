@@ -13,6 +13,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+//JsonReader class framework from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+
 public class JsonReader {
     private String source;
 
@@ -45,14 +47,14 @@ public class JsonReader {
         JSONArray allTeams = jsonObject.getJSONArray("allTeams");
         ListOfFantasyTeam fantasyTeams = new ListOfFantasyTeam("allTeams");
         for (Object teamObject : allTeams) {
-            FantasyTeam team = parseTeamFromTeamObject((JSONObject) teamObject);
+            FantasyTeam team = parseFantasyTeam((JSONObject) teamObject);
             fantasyTeams.addTeam(team);
         }
         return fantasyTeams;
     }
 
     //EFFECTS: parses a fantasy team from JSON object
-    private FantasyTeam parseTeamFromTeamObject(JSONObject jo) {
+    private FantasyTeam parseFantasyTeam(JSONObject jo) {
         String teamName = jo.getString("teamName");
         JSONArray allPlayers = jo.getJSONArray("players");
         FantasyTeam fantasyTeam = new FantasyTeam(teamName);

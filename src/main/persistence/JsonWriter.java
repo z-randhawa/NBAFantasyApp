@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
+// JsonWriter class framework from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+
 public class JsonWriter {
     private static final int TAB = 4;
     private PrintWriter writer;

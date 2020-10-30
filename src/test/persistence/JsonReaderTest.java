@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+//JsonReaderTest class framework from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+
 public class JsonReaderTest {
 
     @Test

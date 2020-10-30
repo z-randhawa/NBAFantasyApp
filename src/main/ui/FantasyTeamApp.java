@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+// save and load methods from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+
 // Fantasy Team application
 public class FantasyTeamApp {
     private static final String JSON_STORE = "./data/fantasyteam.json";
@@ -175,6 +177,7 @@ public class FantasyTeamApp {
         }
     }
 
+    // EFFECTS: returns master list of players
     public static FantasyTeam getMasterListOfPlayers() {
         return masterListOfPlayers;
     }
